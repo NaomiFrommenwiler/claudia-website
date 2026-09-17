@@ -1,0 +1,77 @@
+# Claudia Meier — Lebensbegleiterin
+
+One-page site. Static HTML, CSS and vanilla JavaScript — no build step for the
+site itself, no dependencies. Open `index.html`, or upload the folder to any host.
+
+```
+index.html          the site
+css/style.css
+js/main.js
+images/             the real photographs
+build-preview.py    reshapes the site for the hosted Artifact preview
+build-standalone.py bundles everything into one openable .html
+```
+
+## The photographs
+
+All real, from the repository. `detail-begegnung.jpg` is a tall crop of the
+same frame as the hero — two crops of one picture read as a sequence; the same
+crop twice would read as a mistake. `texture-quote.jpg` is built from two tiles
+of the mood board, pampas on the left flowing into silk on the right, blended
+across a wide feather so they meet without a seam.
+
+Re-cut any of them by re-running the crops in the project history; the originals
+sit in the repository root.
+
+## Colours
+
+Ivory `#FCFAF6` · Cream `#F6F1E9` · Sand `#EDE4D7` · Almond `#DDD0BE` ·
+Stone `#A8968A` · Clay `#8C7A6C` · Umber `#6B5B50` · Espresso `#4A3E36`
+
+**Two of these have a ceiling.** Clay measures 3.7:1 on Cream — fine for a
+heading or an oversized numeral, never a caption. Stone measures 2.5:1 and is
+decorative only: hairlines and borders. Tinting a label with either is the
+mistake this palette invites.
+
+The three headline lines step lighter on purpose: `#5E4A42`, `#776257`,
+`#8C7A6C` — measured at 6.3:1, 4.4:1 and 3.2:1 against the wall in the
+photograph. The third is as pale as the ladder can go and stay readable.
+
+## Type
+
+Cormorant (300) for the three hero words, Cormorant Garamond for every other
+heading, Karla for navigation and body copy, Beau Rivage for her name — which
+appears once, in the header, and nowhere else.
+
+## The hero
+
+A sticky stage of 190vh. **At rest the photograph is completely untouched** —
+no blur, no veil, no fade. Everything is tied to `--p` (0 → 1), so the
+softening only begins once the page is actually moving: the image scales to
+1.05, blurs to 9px, loses a little opacity, a warm wash rises, and the bottom
+edge dissolves so the next section emerges from the photograph rather than
+cutting it off.
+
+On phones the headline sits low, over the photograph rather than over open
+wall, so it keeps a quiet backing even at rest — the scroll-driven fade is not
+there yet at that point. Measured at rest on a 390px screen: 6.9, 4.8 and
+3.4:1.
+
+Every block of text arrives on a short soft motion, nine pixels over 0.62s.
+It is scoped to `html.js`, so a document whose script never runs shows all of
+its text.
+
+## Contact form
+
+`js/main.js` starts with two lines. `CONTACT_EMAIL` is where messages go.
+`FORM_ENDPOINT` is empty, so the form opens the visitor's mail programme with
+everything filled in — works on static hosting with no backend. Paste a
+Formspree / Getform / Basin URL there and it posts straight to the inbox
+instead; nothing else changes. A hidden honeypot catches the common bots.
+
+## Still to fill in
+
+The phone number and e-mail address are placeholders: `+41 79 000 00 00` and
+`kontakt@claudia-meier.ch`, in `index.html` and in `js/main.js`.
+
+The hero tagline says *Deine*, the body copy says *Sie*. One of them should move.
