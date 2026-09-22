@@ -61,6 +61,34 @@ Every block of text arrives on a short soft motion, nine pixels over 0.62s.
 It is scoped to `html.js`, so a document whose script never runs shows all of
 its text.
 
+## Contact — WhatsApp, and the phone number
+
+There is no contact form and no e-mail address. The contact panel is a single
+button that opens WhatsApp with an opening line already written, which is a
+much lower barrier than a blank box for someone writing about something
+difficult. The line is editable before sending, as WhatsApp always allows.
+
+**The phone number appears in exactly four places, all in `index.html`.**
+Search for `41790000000` — the current value is a placeholder:
+
+| Where | Format |
+|---|---|
+| Kontakt, running text | `tel:+41790000000` and the visible `+41 79 000 00 00` |
+| "Nachricht senden" button | `https://wa.me/41790000000?text=…` |
+| Below the button | `tel:+41790000000` |
+| Footer | `tel:+41790000000` and `https://wa.me/41790000000` |
+
+Two formats, and they differ on purpose:
+
+- `tel:` keeps the leading `+` → `tel:+41791234567`
+- `wa.me/` takes **no** `+`, no spaces, no leading zero → `wa.me/41791234567`
+
+A `+` or a space in a `wa.me` link gives the visitor an error page instead of
+a chat, so it is worth checking that one by eye after changing it.
+
+The `?text=` part is URL-encoded. To change the opening line, encode it first
+(spaces become `%20`, `ö` becomes `%C3%B6`) or the link breaks at the first space.
+
 ## Contact form
 
 `js/main.js` starts with two lines. `CONTACT_EMAIL` is where messages go.
@@ -71,7 +99,6 @@ instead; nothing else changes. A hidden honeypot catches the common bots.
 
 ## Still to fill in
 
-The phone number and e-mail address are placeholders: `+41 79 000 00 00` and
-`kontakt@claudia-meier.ch`, in `index.html` and in `js/main.js`.
+The phone number is a placeholder — see the table above for all four places.
 
 The hero tagline says *Deine*, the body copy says *Sie*. One of them should move.

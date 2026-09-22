@@ -305,20 +305,24 @@ img{max-width:100%;display:block}
 .rate__price{font-family:var(--f-display);font-weight:500;font-size:1.75rem;white-space:nowrap;color:var(--espresso)}
 .rate__note{margin:0;font-size:1rem;line-height:1.75}
 
-.kontakt__form{position:sticky;top:calc(var(--nav-h) + var(--s3));background:var(--ivory);border:1px solid var(--line);padding:clamp(1.9rem,3.2vw,2.6rem)}
-.form__title{margin:0 0 var(--s3);font-family:var(--f-display);font-weight:500;font-size:1.7rem;color:var(--espresso)}
-.field{margin-bottom:var(--s3)}
-.field label{display:block;margin-bottom:.5rem;font-size:.8rem;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:var(--espresso)}
-.field input,.field textarea{
-  width:100%;background:transparent;border:none;border-bottom:1px solid var(--stone);border-radius:0;
-  padding:.6rem 0;font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;color:var(--espresso);
-  transition:border-color .3s ease;
+/* The contact panel is one action, not a form: it hands the visitor
+   straight to WhatsApp with an opening line already written, which is a
+   far lower barrier than a blank box for someone writing about something
+   difficult. */
+.kontakt__action{
+  position:sticky;top:calc(var(--nav-h) + var(--s3));
+  background:var(--ivory);border:1px solid var(--line);
+  padding:clamp(2rem,3.4vw,2.8rem);
 }
-.field textarea{resize:vertical;min-height:7rem}
-.field input:focus,.field textarea:focus{outline:none;border-bottom-color:var(--espresso)}
-.field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-bottom-color:var(--clay);border-bottom-width:2px}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.form__status{margin:var(--s2) 0 0;min-height:1.5rem;font-size:.98rem;line-height:1.6;color:var(--espresso)}
+.action__kicker{
+  margin:0 0 var(--s2);font-family:var(--f-display);
+  font-size:1.05rem;font-weight:600;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--espresso);
+}
+.action__lead{margin:0 0 var(--s3);font-size:1.02rem;line-height:1.7;color:var(--umber)}
+.btn--wa{width:100%;gap:.7rem}
+.btn__wa{width:1.15rem;height:1.15rem;flex:0 0 auto}
+.action__note{margin:var(--s2) 0 0;font-size:.95rem;line-height:1.7;color:var(--umber)}
 
 .foot{background:var(--espresso);color:var(--cream);padding:clamp(3rem,7vh,4.5rem) 0}
 .foot__inner{
@@ -351,7 +355,7 @@ html.js .reveal.is-in{opacity:1;transform:none}
 
 @media (max-width:900px){
   .ueber__grid,.angebot__grid,.kontakt__grid{grid-template-columns:1fr;gap:var(--s4)}
-  .kontakt__form,.angebot__shot{position:static}
+  .kontakt__action,.angebot__shot{position:static}
   .ueber__shot,.angebot__shot{max-width:440px}
   .angebot__head{margin-bottom:var(--s4)}
 }
@@ -413,7 +417,7 @@ html.js .reveal.is-in{opacity:1;transform:none}
 }
 
 @media print{
-  .nav,.kontakt__form{display:none}
+  .nav{display:none}
   body{background:#fff;color:#000}
   .stage{height:auto}.stage__pin{position:relative;height:auto}
   .angebot,.quote,.ueber,.kontakt{background:#fff}

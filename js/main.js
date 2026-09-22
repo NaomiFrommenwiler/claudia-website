@@ -4,19 +4,6 @@
 (function () {
   'use strict';
 
-  /* ------------------------------------------------------
-     CONFIG — the two lines to change before going live
-     ------------------------------------------------------
-     CONTACT_EMAIL : where the form should land.
-     FORM_ENDPOINT : leave '' and the form opens the visitor's
-                     mail programme with everything filled in
-                     (works on static hosting, no backend).
-                     Paste a Formspree / Getform / Basin URL
-                     here and it posts straight there instead.
-     ------------------------------------------------------ */
-  var CONTACT_EMAIL = 'kontakt@claudia-meier.ch';
-  var FORM_ENDPOINT = '';
-
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ------------------------------------------------------
@@ -137,69 +124,6 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     Array.prototype.forEach.call(items, function (el) { io.observe(el); });
   }
-
-  /* ------------------------------------------------------
-     Contact form
-     ------------------------------------------------------ */
-  var form   = document.getElementById('contactForm');
-  var status = document.getElementById('formStatus');
-
-  function say(msg) { status.textContent = msg; }
-  function invalid(field, yes) { field.setAttribute('aria-invalid', yes ? 'true' : 'false'); }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    var name = form.elements.name, email = form.elements.email, message = form.elements.message;
-
-    /* honeypot: accept quietly and drop */
-    if (form.elements.website.value !== '') {
-      say('Vielen Dank für Ihre Nachricht.');
-      form.reset();
-      return;
-    }
-
-    var problems = [];
-    if (!name.value.trim()) { invalid(name, true); problems.push('Ihren Namen'); }
-    else invalid(name, false);
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
-      invalid(email, true); problems.push('eine gültige E-Mail-Adresse');
-    } else invalid(email, false);
-
-    if (!message.value.trim()) { invalid(message, true); problems.push('Ihr Anliegen'); }
-    else invalid(message, false);
-
-    if (problems.length) {
-      say('Bitte ergänzen Sie noch ' + problems.join(', ') + '.');
-      (form.querySelector('[aria-invalid="true"]') || name).focus();
-      return;
-    }
-
-    if (FORM_ENDPOINT) {
-      say('Ihre Nachricht wird gesendet …');
-      fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
-        .then(function (res) {
-          if (!res.ok) throw new Error(res.status);
-          form.reset();
-          say('Herzlichen Dank – Ihre Nachricht ist angekommen. Ich melde mich bald bei Ihnen.');
-        })
-        .catch(function () {
-          say('Das Senden hat leider nicht geklappt. Schreiben Sie mir gerne direkt an ' + CONTACT_EMAIL + '.');
-        });
-      return;
-    }
-
-    var subject = 'Anfrage über die Website – ' + name.value.trim();
-    var body = 'Name: ' + name.value.trim() + '\n' +
-               'E-Mail: ' + email.value.trim() + '\n\n' +
-               message.value.trim() + '\n';
-
-    window.location.href = 'mailto:' + CONTACT_EMAIL +
-      '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-    say('Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht – bitte dort noch auf «Senden» klicken.');
-  });
 
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
