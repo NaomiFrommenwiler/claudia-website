@@ -69,14 +69,14 @@ much lower barrier than a blank box for someone writing about something
 difficult. The line is editable before sending, as WhatsApp always allows.
 
 **The phone number appears in five places, all in `index.html`.**
-Search for `41584481414`:
+Search for `41783380706`:
 
 | Where | Format |
 |---|---|
-| Kontakt, running text | `tel:+41584481414` and the visible `+41 58 448 14 14` |
-| "Nachricht senden" button | `https://wa.me/41584481414?text=…` |
-| Below the button | `tel:+41584481414` |
-| Footer | `tel:+41584481414` and `https://wa.me/41584481414` |
+| Kontakt, running text | `tel:+41783380706` and the visible `+41 78 338 07 06` |
+| "Nachricht senden" button | `https://wa.me/41783380706?text=…` |
+| Below the button | `tel:+41783380706` |
+| Footer | `tel:+41783380706` and `https://wa.me/41783380706` |
 
 Two formats, and they differ on purpose:
 
