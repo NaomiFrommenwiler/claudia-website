@@ -68,15 +68,15 @@ button that opens WhatsApp with an opening line already written, which is a
 much lower barrier than a blank box for someone writing about something
 difficult. The line is editable before sending, as WhatsApp always allows.
 
-**The phone number appears in exactly four places, all in `index.html`.**
-Search for `41790000000` — the current value is a placeholder:
+**The phone number appears in five places, all in `index.html`.**
+Search for `41584481414`:
 
 | Where | Format |
 |---|---|
-| Kontakt, running text | `tel:+41790000000` and the visible `+41 79 000 00 00` |
-| "Nachricht senden" button | `https://wa.me/41790000000?text=…` |
-| Below the button | `tel:+41790000000` |
-| Footer | `tel:+41790000000` and `https://wa.me/41790000000` |
+| Kontakt, running text | `tel:+41584481414` and the visible `+41 58 448 14 14` |
+| "Nachricht senden" button | `https://wa.me/41584481414?text=…` |
+| Below the button | `tel:+41584481414` |
+| Footer | `tel:+41584481414` and `https://wa.me/41584481414` |
 
 Two formats, and they differ on purpose:
 
@@ -98,7 +98,5 @@ Formspree / Getform / Basin URL there and it posts straight to the inbox
 instead; nothing else changes. A hidden honeypot catches the common bots.
 
 ## Still to fill in
-
-The phone number is a placeholder — see the table above for all four places.
 
 The hero tagline says *Deine*, the body copy says *Sie*. One of them should move.
