@@ -307,6 +307,41 @@ img{max-width:100%;display:block}
 .quote__text p:last-child{margin-bottom:0}
 .quote__text em{font-style:italic;color:var(--clay)}
 
+/* ---------------------------------------------------------
+   Stimmen — real client words. A fine rule all round and a
+   soft warm shadow lift each one off the page; the card sits
+   a shade lighter than the ground behind it rather than in a
+   different colour.
+   --------------------------------------------------------- */
+
+.stimmen{background:var(--cream);padding:var(--s6) 0}
+.stimmen__inner{max-width:1440px;margin-inline:auto;padding-inline:var(--gutter)}
+.stimmen .h2{margin-bottom:var(--s5)}
+.stimmen__grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(1.5rem,3vw,2.5rem);align-items:stretch;
+}
+.stimme{
+  /* equal height, with the name pinned to the foot of each card, so two
+     quotes of different length still read as a pair */
+  display:flex;flex-direction:column;
+  margin:0;background:var(--ivory);
+  border:1px solid rgba(74,62,54,.13);
+  padding:clamp(1.9rem,3vw,2.6rem);
+  box-shadow:0 1px 2px rgba(74,62,54,.04), 0 10px 28px -12px rgba(74,62,54,.14);
+}
+.stimme blockquote{margin:0;flex:1}
+.stimme blockquote p{
+  margin:0;font-family:var(--f-display);font-weight:400;
+  font-size:clamp(1.15rem,1.5vw,1.35rem);line-height:1.6;
+  letter-spacing:-.004em;color:var(--espresso);
+}
+.stimme__emoji{font-size:.86em;letter-spacing:.06em;white-space:nowrap}
+.stimme figcaption{
+  margin-top:var(--s4);font-size:.82rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--umber);
+}
+
 .kontakt{background:var(--cream);padding:var(--s6) 0 clamp(4rem,9vh,6rem)}
 .kontakt__grid{
   max-width:1440px;margin-inline:auto;padding-inline:var(--gutter);
@@ -369,6 +404,8 @@ html.js .reveal.is-in{opacity:1;transform:none}
 
 @media (max-width:900px){
   .ueber__grid,.angebot__grid,.kontakt__grid{grid-template-columns:1fr;gap:var(--s4)}
+  .stimmen__grid{grid-template-columns:1fr;gap:var(--s3)}
+  .stimmen .h2{margin-bottom:var(--s4)}
   .kontakt__action,.angebot__shot{position:static}
   .ueber__shot,.angebot__shot{max-width:440px}
   .angebot__head{margin-bottom:var(--s4)}
@@ -434,7 +471,8 @@ html.js .reveal.is-in{opacity:1;transform:none}
   .nav{display:none}
   body{background:#fff;color:#000}
   .stage{height:auto}.stage__pin{position:relative;height:auto}
-  .angebot,.quote,.ueber,.kontakt{background:#fff}
+  .angebot,.quote,.ueber,.kontakt,.stimmen{background:#fff}
+  .stimme{box-shadow:none;border:1px solid #999}
   .foot{background:#fff;color:#000}
   html.js .reveal{opacity:1;transform:none}
 }
@@ -550,11 +588,42 @@ html.js .reveal.is-in{opacity:1;transform:none}
   </blockquote>
 </section>
 
+<!-- ============ STIMMEN ============ -->
+<section class="stimmen" id="stimmen">
+  <div class="stimmen__inner">
+    <p class="eyebrow reveal"><span>03</span> Stimmen</p>
+    <h2 class="h2 reveal">Was andere erlebt haben.</h2>
+
+    <div class="stimmen__grid">
+      <figure class="stimme reveal">
+        <blockquote>
+          <p>Liebe Claudia, danke für deine Unterstützung beim Wiederverkauf von
+             Konzert-Billetten in Paris. Deine Stärke der Gedanken haben es innert
+             zwei Stunden ermöglicht.</p>
+        </blockquote>
+        <figcaption>Denisa&nbsp;S.</figcaption>
+      </figure>
+
+      <figure class="stimme reveal">
+        <blockquote>
+          <p>Für alle, die bei Fragen und Aufgaben unsicher sind und Hilfe brauchen.
+             Wenn du weitere Unterstützung brauchst oder etwas Neues ausprobieren
+             möchtest, sag einfach Bescheid. Claudia ist jederzeit für dich da und
+             kann dir bei vielen Entscheidungen helfen. Ob es den neuen Job betrifft
+             oder die Partnerschaft oder anderes – ihre Unterstützung hilft immer.
+             <span class="stimme__emoji">🙏🙌🫶🏻</span></p>
+        </blockquote>
+        <figcaption>Milli</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ KONTAKT ============ -->
 <section class="kontakt" id="kontakt">
   <div class="kontakt__grid">
     <div class="kontakt__text">
-      <p class="eyebrow reveal"><span>03</span> Kontakt</p>
+      <p class="eyebrow reveal"><span>04</span> Kontakt</p>
       <h2 class="h2 reveal">Auf ein<br>Kennenlernen</h2>
 
       <div class="prose reveal">

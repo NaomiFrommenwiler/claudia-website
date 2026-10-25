@@ -97,6 +97,18 @@ everything filled in — works on static hosting with no backend. Paste a
 Formspree / Getform / Basin URL there and it posts straight to the inbox
 instead; nothing else changes. A hidden honeypot catches the common bots.
 
+## Stimmen
+
+Two real client messages, in `index.html` under `#stimmen`. Two small
+corrections were made to what was sent: *Biletten* → *Billetten* and
+*Enscheidungen* → *Entscheidungen*, plus sentence punctuation. Nothing was
+added or reworded — revert either if the original spelling should stand.
+
+Milli's message is reproduced as written, including the emoji. It reads as
+advice addressed to a reader rather than as a review, because that is how it
+arrived; worth asking her for a line written as a recommendation if it should
+read like the other one.
+
 ## Still to fill in
 
 The hero tagline says *Deine*, the body copy says *Sie*. One of them should move.
