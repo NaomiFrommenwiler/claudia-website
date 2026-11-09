@@ -25,3 +25,10 @@ for rel in sorted({m for m in re.findall(r"url\('\.\./(images/[^']+)'\)", html)}
     html = html.replace("url('../%s')" % rel, "url('%s')" % data_uri(rel))
 out.write_text(html, encoding='utf-8')
 print('%s — %.1f MB' % (out.name, out.stat().st_size/1024/1024))
+
+# Same file again as deploy/index.html — the name every host expects, ready
+# to drag onto Netlify Drop or similar. Generated, so it is not committed.
+deploy = here / 'deploy'
+deploy.mkdir(exist_ok=True)
+(deploy / 'index.html').write_text(html, encoding='utf-8')
+print('deploy/index.html — ready to upload')
